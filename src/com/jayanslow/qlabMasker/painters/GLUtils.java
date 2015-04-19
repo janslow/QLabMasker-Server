@@ -20,4 +20,8 @@ public class GLUtils {
     final float alpha = color.getAlpha() / 255.0f;
     GL11.glColor4f(red, green, blue, alpha);
   }
+
+  public void setPolygonMode(final boolean fill) {
+    GL11.glPolygonMode(GL11.GL_FRONT_AND_BACK, fill ? GL11.GL_FILL : GL11.GL_LINE);
+  }
 }

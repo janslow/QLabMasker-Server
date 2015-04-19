@@ -11,8 +11,13 @@ import com.jayanslow.qlabMasker.models.Polygon;
 
 public abstract class AbstractPolygonGLPainter extends AbstractGLPainterWithChildren<Polygon, Point> {
 
-  public AbstractPolygonGLPainter(final GLUtils glUtils, final Optional<GLPainter<Point>> polygonPainter) {
-    super(glUtils, polygonPainter);
+  public AbstractPolygonGLPainter(final GLUtils glUtils, final Optional<GLPainter<Point>> pointPainter) {
+    super(glUtils, pointPainter);
+  }
+
+  protected void applyStyle(final Polygon polygon) {
+    glUtils().applyColor(getFillColor(polygon));
+    glUtils().setPolygonMode(true);
   }
 
   @Override
@@ -24,7 +29,7 @@ public abstract class AbstractPolygonGLPainter extends AbstractGLPainterWithChil
 
   @Override
   protected void paintSelf(final Polygon polygon) {
-    glUtils().applyColor(getFillColor(polygon));
+    applyStyle(polygon);
 
     GL11.glBegin(GL11.GL_POLYGON);
     for (final Point point : polygon.getPoints()) {
