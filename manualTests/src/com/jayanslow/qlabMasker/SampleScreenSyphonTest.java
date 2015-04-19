@@ -40,7 +40,7 @@ public class SampleScreenSyphonTest extends AbstractSyphonTest {
    *
    */
   @Inject
-  public SampleScreenSyphonTest(@TargetPainterMode(PainterMode.INVERTED_MASK) final GLPainter<Screen> screenPainter, final Workspace workspace) throws LWJGLException {
+  public SampleScreenSyphonTest(@TargetPainterMode(PainterMode.EDIT) final GLPainter<Screen> screenPainter, final Workspace workspace) throws LWJGLException {
     _screenPainter = screenPainter;
     _workspace = workspace;
     _server = new JSyphonServer();

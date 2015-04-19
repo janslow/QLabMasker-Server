@@ -16,9 +16,7 @@ public class PaintersModule extends AbstractModule {
 
   public static final String NAME_UNMASK_COLOR = "UNMASK_COLOR";
 
-  private <T> LinkedBindingBuilder<GLPainter<T>> bindPainter(final Class<T> targetClass, final PainterMode targetMode) {
-    return bind(TypeLiteralUtils.painterOf(targetClass)).annotatedWith(TargetPainterModes.target(targetMode));
-  }
+  public static final String NAME_EDIT_STROKE_PAINTER = "EDIT_STROKE_PAINTER";
 
   @Override
   protected void configure() {
@@ -28,7 +26,15 @@ public class PaintersModule extends AbstractModule {
     bindPainter(Screen.class, PainterMode.INVERTED_MASK).to(ScreenInvertedMaskGLPainter.class);
     bindPainter(Polygon.class, PainterMode.INVERTED_MASK).to(PolygonInvertedMaskGLPainter.class);
 
+    bindPainter(Screen.class, PainterMode.EDIT).to(ScreenEditGLPainter.class);
+    bindPainter(Polygon.class, PainterMode.EDIT).to(PolygonEditFillGLPainter.class);
+    bind(TypeLiteralUtils.painterOf(Polygon.class)).annotatedWith(Names.named(NAME_EDIT_STROKE_PAINTER)).to(PolygonEditStrokeGLPainter.class);
+
     bind(ReadableColor.class).annotatedWith(Names.named(NAME_MASK_COLOR)).toInstance(new Color(0, 0, 0));
     bind(ReadableColor.class).annotatedWith(Names.named(NAME_UNMASK_COLOR)).toInstance(new Color(255, 255, 255));
+  }
+
+  private <T> LinkedBindingBuilder<GLPainter<T>> bindPainter(final Class<T> targetClass, final PainterMode targetMode) {
+    return bind(TypeLiteralUtils.painterOf(targetClass)).annotatedWith(TargetPainterModes.target(targetMode));
   }
 }
