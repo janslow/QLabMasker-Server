@@ -10,7 +10,7 @@ import com.jayanslow.qlabMasker.models.Screen;
 
 public class AbstractScreenGLPainter extends AbstractGLPainterWithChildren<Screen, Polygon> implements GLPainter<Screen> {
 
-  protected final GLPainter<Polygon> _polygonPainter;
+  private final GLPainter<Polygon> _polygonPainter;
 
   private final ReadableColor _clearColor;
 
