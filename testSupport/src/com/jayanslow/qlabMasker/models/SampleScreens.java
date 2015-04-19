@@ -17,12 +17,17 @@ public final class SampleScreens {
   }
 
   public static Screen getScreen() {
-    return new Screen(800, 600, ImmutableList.of(getMaskPolygon1(), getMaskPolygon2(), getUnmaskPolygon()));
+    return new Screen(800, 600, ImmutableList.of(getMaskPolygon1(), getMaskPolygon2(), getUnmaskPolygon1(), getUnmaskPolygon2()));
   }
 
-  public static Polygon getUnmaskPolygon() {
+  public static Polygon getUnmaskPolygon1() {
     final List<Point> points = Lists.newArrayList(new Point(320, 460), new Point(320, 380), new Point(600, 340), new Point(600, 420));
     return new Polygon("unmask", RenderMode.UNMASK, points);
+  }
+
+  public static Polygon getUnmaskPolygon2() {
+    final List<Point> points = Lists.newArrayList(new Point(50, 50), new Point(300, 50), new Point(250, 300), new Point(100, 300));
+    return new Polygon("unmask2", RenderMode.UNMASK, points);
   }
 
   private SampleScreens() {
