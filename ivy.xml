@@ -1,0 +1,13 @@
+<ivy-module version="2.0">
+    <info organisation="com.jayanslow" module="QLabMaskerServer"/>
+    <dependencies>
+        <dependency org="com.google.guava" name="guava" rev="18.0"/>
+        <dependency org="com.google.inject" name="guice" rev="4.0-beta5"/>
+        
+        
+        <dependency org="org.lwjgl.lwjgl" name="lwjgl" rev="2.9.0"/>
+        <dependency org="org.lwjgl.lwjgl" name="lwjgl_util" rev="2.9.0"/>
+        <dependency org="org.lwjgl.lwjgl" name="lwjgl_util_applet" rev="2.9.0"/>
+        <dependency org="com.apple" name="AppleJavaExtensions" rev="1.4"/>
+    </dependencies>
+</ivy-module>
