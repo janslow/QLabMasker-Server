@@ -40,6 +40,11 @@ public abstract class AbstractSyphonTest {
       final int width = getWidth();
       final int height = getHeight();
 
+      GL11.glEnable(GL11.GL_LINE_SMOOTH);
+      GL11.glEnable(GL11.GL_POLYGON_SMOOTH);
+      GL11.glEnable(GL11.GL_BLEND);
+      GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+
       GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
       GL11.glLoadIdentity();
 
@@ -65,6 +70,12 @@ public abstract class AbstractSyphonTest {
     Display.destroy();
   }
 
+  protected abstract int getHeight();
+
+  protected abstract int getWidth();
+
+  protected abstract void render();
+
   private void publishFrame(final IntBuffer intBuff, final int width, final int height) {
     final int target = GL11.GL_TEXTURE_2D;
 
@@ -83,10 +94,4 @@ public abstract class AbstractSyphonTest {
 
     GL11.glDeleteTextures(intBuff.get(0));
   }
-
-  protected abstract int getHeight();
-
-  protected abstract int getWidth();
-
-  protected abstract void render();
 }
