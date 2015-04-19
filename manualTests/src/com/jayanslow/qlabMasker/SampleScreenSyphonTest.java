@@ -10,6 +10,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.jayanslow.qlabMasker.models.SampleScreens;
 import com.jayanslow.qlabMasker.models.Screen;
+import com.jayanslow.qlabMasker.models.Workspace;
 import com.jayanslow.qlabMasker.painters.GLPainter;
 import com.jayanslow.qlabMasker.painters.PainterMode;
 import com.jayanslow.qlabMasker.painters.PaintersModule;
@@ -21,7 +22,8 @@ public class SampleScreenSyphonTest extends AbstractSyphonTest {
     final SampleScreenSyphonTest t = Guice.createInjector(new PaintersModule(), new AbstractModule() {
       @Override
       protected void configure() {
-        bind(Screen.class).toInstance(SampleScreens.getScreen());
+        final Workspace workspace = new Workspace(SampleScreens.getScreen());
+        bind(Workspace.class).toInstance(workspace);
       }
     }).getInstance(SampleScreenSyphonTest.class);
     t.start();
@@ -29,18 +31,18 @@ public class SampleScreenSyphonTest extends AbstractSyphonTest {
 
   private final JSyphonServer _server;
 
-  private final Screen _screen;
-
   private final GLPainter<Screen> _screenPainter;
+
+  private final Workspace _workspace;
 
   /**
    * @throws LWJGLException
    *
    */
   @Inject
-  public SampleScreenSyphonTest(@TargetPainterMode(PainterMode.INVERTED_MASK) final GLPainter<Screen> screenPainter, final Screen screen) throws LWJGLException {
+  public SampleScreenSyphonTest(@TargetPainterMode(PainterMode.INVERTED_MASK) final GLPainter<Screen> screenPainter, final Workspace workspace) throws LWJGLException {
     _screenPainter = screenPainter;
-    _screen = screen;
+    _workspace = workspace;
     _server = new JSyphonServer();
   }
 
@@ -51,16 +53,16 @@ public class SampleScreenSyphonTest extends AbstractSyphonTest {
 
   @Override
   protected int getHeight() {
-    return _screen.getHeight();
+    return _workspace.getScreen().getHeight();
   }
 
   @Override
   protected int getWidth() {
-    return _screen.getWidth();
+    return _workspace.getScreen().getWidth();
   }
 
   @Override
   protected void render() {
-    _screenPainter.paint(_screen);
+    _screenPainter.paint(_workspace.getScreen());
   }
 }
