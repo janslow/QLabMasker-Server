@@ -28,7 +28,7 @@ public abstract class AbstractPolygonGLPainter extends AbstractGLPainterWithChil
 
     GL11.glBegin(GL11.GL_POLYGON);
     for (final Point point : polygon.getPoints()) {
-      GL11.glVertex3f(point.getX(), point.getY(), 0.0f);
+      GL11.glVertex3f(point.getX() + 0.5f, point.getY() + 0.5f, 0.0f);
     }
     GL11.glEnd();
   }
