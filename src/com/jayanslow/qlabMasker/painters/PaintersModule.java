@@ -16,8 +16,6 @@ public class PaintersModule extends AbstractModule {
 
   public static final String NAME_UNMASK_COLOR = "UNMASK_COLOR";
 
-  public static final String NAME_EDIT_STROKE_PAINTER = "EDIT_STROKE_PAINTER";
-
   @Override
   protected void configure() {
     bindPainter(Screen.class, PainterMode.MASK).to(ScreenMaskGLPainter.class);
@@ -28,7 +26,6 @@ public class PaintersModule extends AbstractModule {
 
     bindPainter(Screen.class, PainterMode.EDIT).to(ScreenEditGLPainter.class);
     bindPainter(Polygon.class, PainterMode.EDIT).to(PolygonEditFillGLPainter.class);
-    bind(TypeLiteralUtils.painterOf(Polygon.class)).annotatedWith(Names.named(NAME_EDIT_STROKE_PAINTER)).to(PolygonEditStrokeGLPainter.class);
 
     bind(ReadableColor.class).annotatedWith(Names.named(NAME_MASK_COLOR)).toInstance(new Color(0, 0, 0));
     bind(ReadableColor.class).annotatedWith(Names.named(NAME_UNMASK_COLOR)).toInstance(new Color(255, 255, 255));

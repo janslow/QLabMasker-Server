@@ -46,9 +46,6 @@ class PolygonEditFillGLPainter extends AbstractPolygonGLPainter {
         throw new RuntimeException(String.format("Unsupported render mode: %s", polygon.getRenderMode()));
     }
 
-    final List<Polygon> polygons = _workspace.getScreen().getPolygons();
-
-    final int index = polygons.indexOf(polygon);
     return new Color((int) (red * 255), (int) (green * 255), (int) (blue * 255), ALPHA);
   }
 
