@@ -47,6 +47,8 @@ public class SimpleSyphonTest extends AbstractSyphonTest {
 
   @Override
   protected void render() {
+    GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
+
     GL11.glBegin(GL11.GL_POLYGON);// begin drawing of polygon
     GL11.glVertex3f(200f, 400f, 0.0f);// first vertex
     GL11.glVertex3f(600f, 400f, 0.0f);// second vertex

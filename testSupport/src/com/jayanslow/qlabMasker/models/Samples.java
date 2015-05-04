@@ -1,11 +1,12 @@
 package com.jayanslow.qlabMasker.models;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
-public final class SampleScreens {
+public final class Samples {
   public static Polygon getMaskPolygon1() {
     final List<Point> points = Lists.newArrayList(new Point(200, 200), new Point(400, 340), new Point(400, 500), new Point(150, 450));
     return new Polygon("foo", RenderMode.MASK, points);
@@ -30,6 +31,11 @@ public final class SampleScreens {
     return new Polygon("unmask2", RenderMode.UNMASK, points);
   }
 
-  private SampleScreens() {
+  public static Workspace getWorkspace() {
+    final Polygon unmaskPolygon1 = getUnmaskPolygon1();
+    return new Workspace(getScreen(), Optional.of(unmaskPolygon1), Optional.of(unmaskPolygon1.getPoints().get(0)));
+  }
+
+  private Samples() {
   }
 }

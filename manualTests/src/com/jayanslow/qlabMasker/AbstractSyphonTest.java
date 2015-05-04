@@ -6,6 +6,7 @@ import java.nio.IntBuffer;
 
 import jsyphon.JSyphonServer;
 
+import org.lwjgl.BufferUtils;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
@@ -37,27 +38,23 @@ public abstract class AbstractSyphonTest {
     final IntBuffer intBuff = ByteBuffer.allocateDirect(4).order(ByteOrder.nativeOrder()).asIntBuffer();
 
     while (!Display.isCloseRequested()) {
-      final int width = getWidth();
-      final int height = getHeight();
-
       GL11.glEnable(GL11.GL_LINE_SMOOTH);
       GL11.glEnable(GL11.GL_POLYGON_SMOOTH);
       GL11.glEnable(GL11.GL_BLEND);
       GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 
-      GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
       GL11.glLoadIdentity();
 
       GL11.glTranslatef(-1.0f, 1.0f, 0.0f);
-      final float scaleX = 2 / (float) width;
-      final float scaleY = 2 / (float) height;
+      final float scaleX = 2 / (float) getWidth();
+      final float scaleY = 2 / (float) getHeight();
       GL11.glScalef(scaleX, -scaleY, 1.0f);
 
       GL11.glColor3f(0.0f, 0.0f, 1.0f); // blue color
 
       render();
 
-      publishFrame(intBuff, width, height);
+      publishFrame(intBuff);
 
       intBuff.clear();
       intBuff.rewind();
@@ -76,16 +73,18 @@ public abstract class AbstractSyphonTest {
 
   protected abstract void render();
 
-  private void publishFrame(final IntBuffer intBuff, final int width, final int height) {
+  private void publishFrame(final IntBuffer intBuff) {
+    final int width = getWidth();
+    final int height = getHeight();
+
     final int target = GL11.GL_TEXTURE_2D;
 
     GL11.glEnable(target);
 
     GL11.glGenTextures(intBuff);
-
     GL11.glBindTexture(target, intBuff.get(0));
 
-    final ByteBuffer pixels = null;
+    final ByteBuffer pixels = BufferUtils.createByteBuffer(width * height * 4);
     GL11.glTexImage2D(target, 0, GL11.GL_RGBA8, width, height, 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, pixels);
 
     GL11.glCopyTexSubImage2D(target, 0, 0, 0, 0, 0, width, height);

@@ -8,7 +8,7 @@ import org.lwjgl.LWJGLException;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
-import com.jayanslow.qlabMasker.models.SampleScreens;
+import com.jayanslow.qlabMasker.models.Samples;
 import com.jayanslow.qlabMasker.models.Screen;
 import com.jayanslow.qlabMasker.models.Workspace;
 import com.jayanslow.qlabMasker.painters.GLPainter;
@@ -22,7 +22,7 @@ public class SampleScreenSyphonTest extends AbstractSyphonTest {
     final SampleScreenSyphonTest t = Guice.createInjector(new PaintersModule(), new AbstractModule() {
       @Override
       protected void configure() {
-        final Workspace workspace = new Workspace(SampleScreens.getScreen());
+        final Workspace workspace = Samples.getWorkspace();
         bind(Workspace.class).toInstance(workspace);
       }
     }).getInstance(SampleScreenSyphonTest.class);
