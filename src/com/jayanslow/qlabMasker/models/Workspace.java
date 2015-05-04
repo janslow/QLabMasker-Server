@@ -9,14 +9,20 @@ import java.util.Optional;
  * @author janslow
  */
 public class Workspace {
-  private Optional<Point> _selectedPoint = Optional.empty();
+  private Optional<Point> _selectedPoint;
 
   private Screen _screen;
 
-  private Optional<Polygon> _selectedPolygon = Optional.empty();
+  private Optional<Polygon> _selectedPolygon;
 
   public Workspace(final Screen screen) {
+    this(screen, Optional.empty(), Optional.empty());
+  }
+
+  public Workspace(final Screen screen, final Optional<Polygon> selectedPolygon, final Optional<Point> selectedPoint) {
     _screen = screen;
+    _selectedPolygon = selectedPolygon;
+    _selectedPoint = selectedPoint;
   }
 
   public Screen getScreen() {
