@@ -17,7 +17,6 @@ public abstract class AbstractPolygonGLPainter extends AbstractGLPainterWithChil
 
   protected void applyStyle(final Polygon polygon) {
     glUtils().applyColor(getFillColor(polygon));
-    glUtils().setPolygonMode(true);
   }
 
   @Override

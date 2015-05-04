@@ -21,12 +21,6 @@ public class PolygonEditStrokeGLPainter extends AbstractPolygonGLPainter {
   }
 
   @Override
-  protected void applyStyle(final Polygon polygon) {
-    glUtils().applyColor(getFillColor(polygon));
-    glUtils().setPolygonMode(false);
-  }
-
-  @Override
   protected ReadableColor getFillColor(final Polygon polygon) {
     final Optional<Polygon> selectedPolygon = _workspace.getSelectedPolygon();
     if (selectedPolygon.map(p -> p.equals(polygon)).orElse(false)) {

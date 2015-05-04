@@ -28,14 +28,13 @@ public class PolygonEditFillGLPainter extends AbstractPolygonGLPainter {
   protected ReadableColor getFillColor(final Polygon polygon) {
     final Optional<Polygon> selectedPolygon = _workspace.getSelectedPolygon();
     if (selectedPolygon.map(p -> p.equals(polygon)).orElse(false)) {
-      final Color color = new Color(ReadableColor.GREEN);
-      color.setAlpha(ALPHA);
+      final Color color = new Color(0, 200, 0, ALPHA);
       return color;
     }
 
-    float red = 0.4f;
-    final float green = 0.4f;
-    float blue = 0.4f;
+    float red = 0.3f;
+    final float green = 0.3f;
+    float blue = 0.3f;
 
     switch (polygon.getRenderMode()) {
       case MASK:
@@ -51,15 +50,7 @@ public class PolygonEditFillGLPainter extends AbstractPolygonGLPainter {
     final List<Polygon> polygons = _workspace.getScreen().getPolygons();
 
     final int index = polygons.indexOf(polygon);
-    float scale;
-    if (index < 0) {
-      scale = 1;
-    }
-    else {
-      scale = (index + 1.0f) / polygons.size();
-      scale = (scale - 0.5f) / 2 + 0.5f;
-    }
-    return new Color((int) (red * scale * 255), (int) (green * scale * 255), (int) (blue * scale * 255), ALPHA);
+    return new Color((int) (red * 255), (int) (green * 255), (int) (blue * 255), ALPHA);
   }
 
 }

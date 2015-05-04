@@ -3,6 +3,7 @@ package com.jayanslow.qlabMasker.painters;
 import java.util.List;
 import java.util.Optional;
 
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.ReadableColor;
 
 import com.jayanslow.qlabMasker.models.Polygon;
@@ -28,5 +29,6 @@ public class AbstractScreenGLPainter extends AbstractGLPainterWithChildren<Scree
   @Override
   protected void paintSelf(final Screen screen) {
     glUtils().applyClearColor(_clearColor);
+    GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
   }
 }
