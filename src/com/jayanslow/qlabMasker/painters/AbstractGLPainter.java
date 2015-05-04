@@ -1,6 +1,7 @@
 package com.jayanslow.qlabMasker.painters;
 
-public abstract class AbstractGLPainter<T> implements GLPainter<T> {
+
+abstract class AbstractGLPainter<T> implements GLPainter<T> {
 
   private final GLUtils _glUtils;
 

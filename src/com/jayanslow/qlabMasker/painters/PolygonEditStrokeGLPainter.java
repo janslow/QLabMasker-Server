@@ -9,7 +9,7 @@ import org.lwjgl.util.ReadableColor;
 import com.jayanslow.qlabMasker.models.Polygon;
 import com.jayanslow.qlabMasker.models.Workspace;
 
-public class PolygonEditStrokeGLPainter extends AbstractPolygonGLPainter {
+class PolygonEditStrokeGLPainter extends AbstractPolygonGLPainter {
 
   private final Workspace _workspace;
 

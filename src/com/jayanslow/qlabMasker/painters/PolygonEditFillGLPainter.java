@@ -1,6 +1,5 @@
 package com.jayanslow.qlabMasker.painters;
 
-import java.util.List;
 import java.util.Optional;
 
 import javax.inject.Inject;
@@ -11,7 +10,7 @@ import org.lwjgl.util.ReadableColor;
 import com.jayanslow.qlabMasker.models.Polygon;
 import com.jayanslow.qlabMasker.models.Workspace;
 
-public class PolygonEditFillGLPainter extends AbstractPolygonGLPainter {
+class PolygonEditFillGLPainter extends AbstractPolygonGLPainter {
 
   private static final int ALPHA = 200;
 

@@ -3,7 +3,7 @@ package com.jayanslow.qlabMasker.painters;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class AbstractGLPainterWithChildren<T, S> extends AbstractGLPainter<T> {
+abstract class AbstractGLPainterWithChildren<T, S> extends AbstractGLPainter<T> {
 
   private final Optional<GLPainter<S>> _childPainter;
 

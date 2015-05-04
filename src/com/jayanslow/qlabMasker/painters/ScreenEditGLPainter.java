@@ -15,7 +15,7 @@ import com.jayanslow.qlabMasker.models.Polygon;
 import com.jayanslow.qlabMasker.models.Screen;
 import com.jayanslow.qlabMasker.models.Workspace;
 
-public class ScreenEditGLPainter extends AbstractScreenGLPainter {
+class ScreenEditGLPainter extends AbstractScreenGLPainter {
 
   private static final ReadableColor CLEAR_COLOR = ReadableColor.BLACK;
 

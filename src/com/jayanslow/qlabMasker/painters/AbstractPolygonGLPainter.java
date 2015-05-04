@@ -9,7 +9,7 @@ import org.lwjgl.util.ReadableColor;
 import com.jayanslow.qlabMasker.models.Point;
 import com.jayanslow.qlabMasker.models.Polygon;
 
-public abstract class AbstractPolygonGLPainter extends AbstractGLPainterWithChildren<Polygon, Point> {
+abstract class AbstractPolygonGLPainter extends AbstractGLPainterWithChildren<Polygon, Point> {
 
   public AbstractPolygonGLPainter(final GLUtils glUtils, final Optional<GLPainter<Point>> pointPainter) {
     super(glUtils, pointPainter);

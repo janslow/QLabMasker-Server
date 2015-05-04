@@ -3,7 +3,7 @@ package com.jayanslow.qlabMasker.painters;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.ReadableColor;
 
-public class GLUtils {
+class GLUtils {
 
   public void applyClearColor(final ReadableColor color) {
     final float red = color.getRed() / 255.0f;

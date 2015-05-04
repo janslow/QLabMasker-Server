@@ -9,15 +9,12 @@ import org.lwjgl.util.ReadableColor;
 import com.jayanslow.qlabMasker.models.Polygon;
 import com.jayanslow.qlabMasker.models.Screen;
 
-public class AbstractScreenGLPainter extends AbstractGLPainterWithChildren<Screen, Polygon> implements GLPainter<Screen> {
-
-  private final GLPainter<Polygon> _polygonPainter;
+class AbstractScreenGLPainter extends AbstractGLPainterWithChildren<Screen, Polygon> implements GLPainter<Screen> {
 
   private final ReadableColor _clearColor;
 
   public AbstractScreenGLPainter(final GLUtils glUtils, final GLPainter<Polygon> polygonPainter, final ReadableColor clearColor) {
     super(glUtils, Optional.of(polygonPainter));
-    _polygonPainter = polygonPainter;
     _clearColor = clearColor;
   }
 

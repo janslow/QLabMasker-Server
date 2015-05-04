@@ -9,7 +9,7 @@ import org.lwjgl.util.ReadableColor;
 
 import com.jayanslow.qlabMasker.models.Polygon;
 
-public class PolygonInvertedMaskGLPainter extends AbstractPolygonGLPainter implements GLPainter<Polygon> {
+class PolygonInvertedMaskGLPainter extends AbstractPolygonGLPainter implements GLPainter<Polygon> {
   private final ReadableColor _maskColor;
 
   private final ReadableColor _unmaskColor;
