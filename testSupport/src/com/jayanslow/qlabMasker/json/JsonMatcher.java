@@ -87,7 +87,7 @@ public class JsonMatcher extends TypeSafeMatcher<JsonElement> {
       return expected.getAsBoolean() == actual.getAsBoolean();
     }
     else if (expected.isString() && actual.isString()) {
-      return expected.getAsString().equals(actual.getAsBoolean());
+      return expected.getAsString().equals(actual.getAsString());
     }
     return false;
   }
