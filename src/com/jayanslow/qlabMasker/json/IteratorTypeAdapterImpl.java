@@ -10,7 +10,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 
-class IteratorTypeAdaptorImpl implements IteratorTypeAdapter {
+class IteratorTypeAdapterImpl implements IteratorTypeAdapter {
 
   @Override
   public <T> List<T> read(final TypeAdapter<T> typeAdapter, final JsonReader in) throws IOException {

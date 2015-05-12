@@ -24,12 +24,12 @@ import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
-public class TestIteratorTypeAdaptorImpl {
-  private IteratorTypeAdaptorImpl _toTest;
+public class TestIteratorTypeAdapterImpl {
+  private IteratorTypeAdapterImpl _toTest;
 
   @Before
   public void setUp() {
-    _toTest = new IteratorTypeAdaptorImpl();
+    _toTest = new IteratorTypeAdapterImpl();
 
   }
 

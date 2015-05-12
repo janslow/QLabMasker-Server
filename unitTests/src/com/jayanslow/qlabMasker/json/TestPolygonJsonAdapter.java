@@ -80,7 +80,6 @@ public class TestPolygonJsonAdapter extends AbstractTestTypeAdapter<Polygon> {
 
   @Test
   public void testDeserialize() throws IOException {
-    @SuppressWarnings("unchecked")
     final Polygon expected = new Polygon("foo", RenderMode.MASK, _points);
     final String json = "{\"name\": \"foo\", \"renderMode\":\"bar\", \"points\": \"foobarPoints\"}";
     assertThat(deserialize(json), is(expected));
