@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+import javax.inject.Inject;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -25,6 +27,7 @@ class PolygonTypeAdapter extends AbstractTypeAdapter<Polygon> {
 
   private final IteratorTypeAdapter _iteratorTypeAdapter;
 
+  @Inject
   public PolygonTypeAdapter(final Logger logger, final TypeAdapter<RenderMode> renderModeTypeAdapter, final TypeAdapter<Point> pointTypeAdapter, final IteratorTypeAdapter iteratorTypeAdapter) {
     super(logger);
     _renderModeTypeAdapter = renderModeTypeAdapter;

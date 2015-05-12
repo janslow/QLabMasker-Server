@@ -3,12 +3,15 @@ package com.jayanslow.qlabMasker.json;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import javax.inject.Inject;
+
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.jayanslow.qlabMasker.models.RenderMode;
 
 class RenderModeTypeAdapter extends AbstractTypeAdapter<RenderMode> {
 
+  @Inject
   public RenderModeTypeAdapter(final Logger logger) {
     super(logger);
   }

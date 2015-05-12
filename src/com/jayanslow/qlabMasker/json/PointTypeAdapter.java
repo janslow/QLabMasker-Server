@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+import javax.inject.Inject;
+
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.jayanslow.qlabMasker.models.Point;
@@ -13,6 +15,7 @@ class PointTypeAdapter extends AbstractTypeAdapter<Point> {
 
   private static final String KEY_Y = "y";
 
+  @Inject
   public PointTypeAdapter(final Logger logger) {
     super(logger);
   }
